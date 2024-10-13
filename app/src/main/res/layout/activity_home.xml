@@ -13,9 +13,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,6 +23,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <!-- User location and icon -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,6 +49,7 @@
                     android:src="@drawable/ic_user" />
             </LinearLayout>
 
+            <!-- Search bar -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,8 +57,6 @@
                 android:background="@drawable/search_bg"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:textColor="@android:color/black"
-
                 android:padding="10dp">
 
                 <ImageView
@@ -73,18 +73,18 @@
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:hint="Search Items"
-                    android:textColorHint="@color/black"
                     android:paddingStart="8dp"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="18sp" />
             </LinearLayout>
 
+            <!-- Spinner section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
-
 
                 <Spinner
                     android:id="@+id/sortSpinner"
@@ -94,7 +94,6 @@
                     android:entries="@array/sort_options"
                     android:textColor="@android:color/black"
                     android:padding="10dp" />
-
 
                 <Spinner
                     android:id="@+id/deliverySpinner"
@@ -119,34 +118,35 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@android:color/black"
                     android:entries="@array/type_options"
+                    android:textColor="@android:color/black"
                     android:padding="10dp" />
             </LinearLayout>
 
+            <!-- Banner section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-            android:orientation="vertical">
+                android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="390dp"
-                android:layout_height="190dp"
-                android:layout_marginBottom="8dp"
-            android:contentDescription="Mega Sale Banner"
-            android:src="@drawable/banner2" />
+                <ImageView
+                    android:layout_width="450dp"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="Mega Sale Banner"
+                    android:src="@drawable/banner2" />
 
-            <ImageView
-                android:layout_width="390dp"
-                android:layout_height="190dp"
-                android:contentDescription="Super Sale Banner"
-                android:src="@drawable/banner1" />
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="450dp"
+                    android:layout_height="200dp"
+                    android:contentDescription="Super Sale Banner"
+                    android:src="@drawable/banner1" />
+            </LinearLayout>
 
-
-        <TextView
+            <!-- Top brands label -->
+            <TextView
                 android:id="@+id/topBrandsLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -156,6 +156,7 @@
                 android:textStyle="bold"
                 android:textColor="@android:color/black" />
 
+            <!-- Horizontal scroll for brands -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -199,6 +200,7 @@
         </LinearLayout>
     </ScrollView>
 
+    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
