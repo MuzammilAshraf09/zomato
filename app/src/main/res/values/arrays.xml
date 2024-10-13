@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="sort_options">
+        <item>Fast Delivery</item>
+        <item>Rating 4.0+</item>
+        <item>Pure Veg</item>
+        <item>Low to High Price</item>
+        <item>High to Low Price</item>
+    </string-array>
+
+    <string-array name="delivery_options">
+        <item>Standard Delivery</item>
+        <item>Express Delivery</item>
+        <item>Scheduled Delivery</item>
+        <item>Pickup</item>
+    </string-array>
+
+    <string-array name="rating_options">
+        <item>Rating 4.0+</item>
+        <item>Rating 3.5+</item>
+        <item>Rating 3.0+</item>
+        <item>Rating 2.5+</item>
+        <item>All Ratings</item>
+    </string-array>
+
+    <string-array name="type_options">
+        <item>Vegetarian</item>
+        <item>Non-Vegetarian</item>
+        <item>Vegan</item>
+        <item>Gluten-Free</item>
+        <item>Desserts</item>
+    </string-array>
+</resources>
