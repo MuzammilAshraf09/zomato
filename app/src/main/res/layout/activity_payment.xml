@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".PaymentActivity"
+    android:background="@android:color/white">
+
+    <!-- Payment Settings Heading -->
+
+    <ImageView
+        android:id="@+id/backArrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Back Arrow"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPaymentSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Payment settings"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/backArrow" />
+
+    <!-- Zomato Money Card -->
+    <LinearLayout
+        android:id="@+id/zomatoMoneyLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@drawable/rounded_background"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/tvPaymentSettings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"> <!-- Margin for the bottom of the card -->
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_zomato_money"
+            android:contentDescription="Zomato Money" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zomato Money"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹0.00"
+                android:textSize="14sp"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="Expand" />
+    </LinearLayout>
+
+    <!-- Cards Heading -->
+
+    <!-- Add Credit or Debit Card -->
+
+    <!-- Add HBL -->
+    <TextView
+        android:id="@+id/tvCards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="CARDS"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/zomatoMoneyLayout" />
+
+    <LinearLayout
+        android:id="@+id/addCardLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCards"> <!-- Adjusted margin for separation -->
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="MCB"
+            android:src="@drawable/ic_mcb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add MCB"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD"
+            android:textColor="@color/reddishColor"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/addHBLLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@drawable/rounded_background"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/addCardLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"> <!-- Adjusted margin for separation -->
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_askari"
+            android:contentDescription="Add AskariBank" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add AskariBank"
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD"
+            android:textColor="@color/reddishColor"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Add Cash on Delivery -->
+    <LinearLayout
+        android:id="@+id/addCashOnDeliveryLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@drawable/rounded_background"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/addHBLLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_payment"
+            android:contentDescription="Cash on Delivery" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cash on Delivery"
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD"
+            android:textColor="@color/reddishColor"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/footerText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="© Developed by Muzammil Ashraf"
+        android:textColor="@color/reddishColor"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

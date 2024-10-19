@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <!-- Profile Picture -->
     <ImageView
@@ -40,24 +40,115 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editProfileTitle" />
 
+    <!-- Guest Text -->
+    <TextView
+        android:id="@+id/guestTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guest"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/profileImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
     <!-- Edit Name Field -->
     <EditText
         android:id="@+id/editName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Enter Your Name"
+        android:text="Guest"
         android:textColor="@color/secondaryTextColor"
         android:textSize="18sp"
         android:inputType="textPersonName"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:padding="12dp"
         android:background="@drawable/input_background"
-        app:layout_constraintTop_toBottomOf="@id/profileImageView"
+        app:layout_constraintTop_toBottomOf="@id/guestTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp" />
 
+    <!-- Name Change Button -->
+
+    <!-- Edit Email Field -->
+    <TextView
+        android:id="@+id/changeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:text="CHANGE"
+        android:textColor="#0072B1"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editName" />
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Email"
+        android:text="guest@example.com"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="18sp"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:background="@drawable/input_background"
+        app:layout_constraintTop_toBottomOf="@id/changeName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp" />
+
+    <!-- Email Change Button -->
+    <TextView
+        android:id="@+id/changeEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHANGE"
+        android:textColor="#0072B1"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@id/editEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="32dp" />
+
+    <!-- Edit Mobile Field -->
+    <EditText
+        android:id="@+id/editMobile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Mobile Phone"
+        android:text="+1234567890"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="18sp"
+        android:inputType="phone"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:background="@drawable/input_background"
+        app:layout_constraintTop_toBottomOf="@id/changeEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp" />
+
+    <!-- Mobile Change Button -->
+    <TextView
+        android:id="@+id/changeMobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHANGE"
+        android:textColor="#0072B1"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@id/editMobile"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="32dp" />
 
     <!-- Save Button -->
     <Button
@@ -70,10 +161,9 @@
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/white"
         android:textColor="@color/reddishColor"
-        app:layout_constraintTop_toBottomOf="@id/editName"
+        app:layout_constraintTop_toBottomOf="@id/changeMobile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
     <!-- Footer TextView, positioned at the bottom of the screen -->
     <TextView

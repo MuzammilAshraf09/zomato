@@ -2,7 +2,6 @@ package com.example.zomato
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -22,6 +21,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var overlayView: View
     private lateinit var navigationView: NavigationView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -40,11 +40,18 @@ class HomeActivity : AppCompatActivity() {
 
         // Bottom Navigation listener
         bottomNavigationView.setOnItemSelectedListener { item ->
-            if (item.itemId == R.id.nav_account) {
-                startActivity(Intent(this, AccountActivity::class.java))
-                true
-            } else {
-                false
+            when (item.itemId) {
+                R.id.nav_account -> {
+                    startActivity(Intent(this, AccountActivity::class.java))
+                    true
+                }
+                R.id.nav_payment -> {
+                    // Start PaymentActivity when Payment item is selected
+                    startActivity(Intent(this, PaymentActivity::class.java))
+                    true
+                }
+                // Handle other navigation items if necessary
+                else -> false
             }
         }
 
@@ -65,7 +72,7 @@ class HomeActivity : AppCompatActivity() {
             closeDrawerMenu()
         }
 
-        // Set up navigation item selection listener
+        // Set up navigation item selection listener for the drawer (if still needed)
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_settings -> {

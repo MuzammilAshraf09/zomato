@@ -9,17 +9,21 @@
     android:background="@color/reddishColor"
     tools:context=".AccountActivity">
 
-    <!-- Guideline for vertical spacing -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-         /> <!-- Center guideline -->
-
-    <!-- User Profile Picture -->
+    <!-- Back Arrow -->
     <ImageView
-        android:id="@+id/profilePic"
+        android:id="@+id/backArrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_back_arrow"
+        android:contentDescription="Back Arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Profile Image -->
+    <ImageView
+        android:id="@+id/profileImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="24dp"
@@ -27,51 +31,50 @@
         android:scaleType="centerCrop"
         android:src="@drawable/profile"
         android:background="@drawable/circle_shape"
-    android:clipToOutline="true"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.498"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+        android:clipToOutline="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backArrow" />
 
-    <!-- User Name TextView -->
+    <!-- Display Name -->
     <TextView
         android:id="@+id/userName"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Muzammil Ashraf"
+        android:text="Guest"
         android:textSize="24sp"
-        android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/profilePic"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/profileImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:gravity="center" />
+        android:layout_marginTop="16dp"/>
 
-    <!-- Phone Number TextView -->
+    <!-- Display Email -->
     <TextView
-        android:id="@+id/phoneNumber"
-        android:layout_width="0dp"
+        android:id="@+id/userEmail"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone: +1234567890"
+        android:text="guest@example.com"
         android:textSize="18sp"
-        android:textColor="@android:color/white"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/userName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:gravity="center" />
+        android:layout_marginTop="8dp"/>
 
-    <!-- Free Coins TextView -->
+    <!-- Display Phone -->
     <TextView
-        android:id="@+id/freeCoins"
-        android:layout_width="0dp"
+        android:id="@+id/userPhone"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Free Coins: 100"
+        android:text="+1234567890"
         android:textSize="18sp"
-        android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/phoneNumber"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/userEmail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:gravity="center" />
+        android:layout_marginTop="8dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
