@@ -23,25 +23,32 @@ Sorting and filtering options (by rating, delivery type, etc.).
 Promotional banners for sales and top deals.
 Horizontal scrolling lists of top brands (Burger King, KFC, Subway, etc.).
 Added ScrollView.
-Profile Screen
+
+
+Profile Screen:
 
 Displays user details.
-Settings Screen
+Settings Screen:
 
 Allows users to configure app settings.
-Navigation Drawer
+
+Navigation Drawer:
 
 Provides easy access to different sections of the app.
-Bottom Navigation
+
+Bottom Navigation:
 
 Facilitates quick navigation between main areas of the application.
-Payment Screen
+
+Payment Screen:
 
 Enables users to manage their payment methods.
-Edit Profile Screen
+
+Edit Profile Screen:
 
 Allows users to update their profile information.
-Set Location Screen
+
+Set Location Screen:
 
 Lets users set or update their delivery location.
 Technical Challenges Faced
