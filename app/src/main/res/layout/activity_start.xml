@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -9,23 +10,26 @@
     tools:context=".StartActivity">
 
     <!-- Logo Image -->
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="497dp"
-        android:layout_height="241dp"
-        android:src="@drawable/background"
-        app:layout_constraintBottom_toTopOf="@+id/transitionText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53" />
 
     <!-- Transition Text -->
+
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/background"
+        app:layout_constraintBottom_toTopOf="@+id/transitionText"
+        app:layout_constraintDimensionRatio="w,0:0"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13999999"
+        tools:layout_editor_absoluteX="0dp" />
+
     <TextView
         android:id="@+id/transitionText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="16dp"
         android:text="Zomato\nBest in the town"
         android:textColor="@color/reddishColor"
         android:textSize="40sp"
@@ -40,9 +44,9 @@
     <!-- Title Text -->
     <TextView
         android:id="@+id/titleText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:text="Pakistan’s #1 Food Delivery and Dining App"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -57,7 +61,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleText">
@@ -93,7 +97,7 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:hint="Enter Phone Number"
         android:inputType="phone"
         android:textColor="@color/black"
@@ -102,7 +106,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/loginSignupContainer" />
 
-
+    <!-- Google Button Image -->
+    <ImageView
+        android:id="@+id/googleButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/google_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phoneInput" />
 
     <!-- Continue Button -->
     <Button
@@ -110,23 +124,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="@color/reddishColor"
         android:text="Continue"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/googleButton" />
-    <!-- Google Button Image -->
-    <ImageView
-        android:id="@+id/googleButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="56dp"
-        android:src="@drawable/google_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phoneInput" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

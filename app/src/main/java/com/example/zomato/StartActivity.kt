@@ -1,7 +1,6 @@
 package com.example.zomato
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.animation.AlphaAnimation
@@ -11,11 +10,6 @@ import android.view.animation.ScaleAnimation
 import android.widget.Button
 import android.widget.TextView
 import android.content.Intent
-
-
-
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,9 +51,9 @@ class StartActivity : AppCompatActivity() {
         // Reference the Continue Button
         val continueButton: Button = findViewById(R.id.continueButton)
 
-        // Set an OnClickListener to launch HomeActivity
+        // Set an OnClickListener to launch LocationActivity
         continueButton.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, LocationActivity::class.java) // Updated to LocationActivity
             startActivity(intent)
             finish() // Optional: Call finish() if you don't want to return to StartActivity
         }

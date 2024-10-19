@@ -3,5 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="reddishColor">#A00322</color>
+    <color name="backgroundColor">#FFFFFF</color> <!-- Background color -->
+    <color name="primaryTextColor">#212121</color> <!-- Dark primary text color -->
+    <color name="secondaryTextColor">#757575</color> <!-- Hint or secondary text color -->
+
 
 </resources>

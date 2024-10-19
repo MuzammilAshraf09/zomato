@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/reddishColor"
+    tools:context=".ProfileActivity">
+
+    <!-- Edit Your Profile Title -->
+    <TextView
+        android:id="@+id/editProfileTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Your Profile"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Profile Picture -->
+    <ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="Profile Picture"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"
+        android:background="@drawable/circle_shape"
+        android:clipToOutline="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editProfileTitle" />
+
+    <!-- Edit Name Field -->
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Name"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="18sp"
+        android:inputType="textPersonName"
+        android:layout_marginTop="24dp"
+        android:padding="12dp"
+        android:background="@drawable/input_background"
+        app:layout_constraintTop_toBottomOf="@id/profileImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp" />
+
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/reddishColor"
+        app:layout_constraintTop_toBottomOf="@id/editName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <!-- Footer TextView, positioned at the bottom of the screen -->
+    <TextView
+        android:id="@+id/footerText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="© Developed by Muzammil Ashraf"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

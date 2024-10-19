@@ -7,28 +7,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/reddishColor"
-    android:padding="16dp"
     tools:context=".AccountActivity">
+
+    <!-- Guideline for vertical spacing -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+         /> <!-- Center guideline -->
 
     <!-- User Profile Picture -->
     <ImageView
         android:id="@+id/profilePic"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="24dp"
         android:contentDescription="Profile Picture"
-        android:src="@drawable/ic_user"
         android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />  <!-- Centers the ImageView -->
+        android:src="@drawable/profile"
+        android:background="@drawable/circle_shape"
+    android:clipToOutline="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.498"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
     <!-- User Name TextView -->
     <TextView
         android:id="@+id/userName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Muzammil Ashraf"
         android:textSize="24sp"
@@ -42,7 +50,7 @@
     <!-- Phone Number TextView -->
     <TextView
         android:id="@+id/phoneNumber"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Phone: +1234567890"
         android:textSize="18sp"
@@ -56,7 +64,7 @@
     <!-- Free Coins TextView -->
     <TextView
         android:id="@+id/freeCoins"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Free Coins: 100"
         android:textSize="18sp"

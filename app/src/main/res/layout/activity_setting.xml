@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white"
+    tools:context=".SettingActivity">
+
+    <!-- Back Arrow -->
+    <ImageView
+        android:id="@+id/backArrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_back_arrow"
+        android:contentDescription="Back Arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Settings Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backArrow"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="8dp" />
+
+    <!-- Section: Add a Place -->
+    <TextView
+        android:id="@+id/sectionAddPlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a Place"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp" />
+
+    <TextView
+        android:id="@+id/subtextAddPlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="In case we’re missing something"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sectionAddPlace"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp" />
+
+    <!-- Divider -->
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/subtextAddPlace"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintWidth_percent="1" />
+
+    <!-- Section: Places You've Added -->
+    <TextView
+        android:id="@+id/sectionPlacesAdded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Places you've added"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/divider1"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp" />
+
+    <TextView
+        android:id="@+id/subtextPlacesAdded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See all the places you’ve added so far"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/sectionPlacesAdded"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp" />
+
+    <!-- Divider -->
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/subtextPlacesAdded"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintWidth_percent="1" />
+
+    <!-- Section: Edit Profile -->
+    <TextView
+        android:id="@+id/sectionEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit profile"
+        android:textColor="@android:color/black"
+
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider2"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp" />
+
+    <TextView
+        android:id="@+id/subtextEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change your name, description and profile photo"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sectionEditProfile"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp" />
+
+    <!-- Divider -->
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/subtextEditProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintWidth_percent="1" />
+
+    <!-- Section: Notification Settings -->
+    <TextView
+        android:id="@+id/sectionNotificationSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notification settings"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider3"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp" />
+
+    <TextView
+        android:id="@+id/subtextNotificationSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Define what alerts and notifications you want to see"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sectionNotificationSettings"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp" />
+
+    <!-- Divider -->
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/subtextNotificationSettings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintWidth_percent="1" />
+
+    <!-- Section: Account Settings -->
+    <TextView
+        android:id="@+id/sectionAccountSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account settings"
+        android:textColor="@android:color/black"
+
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider4"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp" />
+
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="36dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sectionAccountSettings"
+        app:layout_constraintWidth_percent="1" />
+
+    <TextView
+        android:id="@+id/subtextAccountSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manage your account, privacy and security"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sectionAccountSettings"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp" />
+
+
+    <!-- Footer TextView, positioned at the bottom of the screen -->
+    <TextView
+        android:id="@+id/footerText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="© Developed by Muzammil Ashraf"
+        android:textColor="@color/reddishColor"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
