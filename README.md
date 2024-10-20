@@ -51,6 +51,11 @@ Allows users to update their profile information.
 Set Location Screen:
 
 Lets users set or update their delivery location.
+
+
+Make All Screens Responsive for all screens 
+
+
 Technical Challenges Faced
 I faced many issues. I started working on this on Thursday, but I didn’t know much about Android Studio, so I spent 4-5 hours on YouTube first to learn how to create XML layouts in Android Studio and discovered that the best layout is Constraint Layout. When I moved on to the Home Page, more complex elements like ScrollView and Spinners came into play. It was quite difficult at first, but after spending 4 days on it, I managed to create activities and modify the AndroidManifest to make the splash screen the launcher, etc.
 
