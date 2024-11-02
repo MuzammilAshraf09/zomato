@@ -87,7 +87,8 @@
     <!-- Scrollable Layout for Cards -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="8dp">
 
         <LinearLayout
@@ -95,7 +96,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- First Card -->
+            <!-- Card 1: Dining Restaurant -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,55 +118,272 @@
                         android:src="@drawable/salad" />
 
                     <TextView
-                        android:id="@+id/tvRestaurantName"
+                        android:id="@+id/tvRestaurantName1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Delivery Restaurant"
+                        android:text="Dining Restaurant"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tvDishName"
+                        android:id="@+id/tvDishName1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Pizza"
+                        android:text="Pasta and Salad"
                         android:textColor="@android:color/darker_gray" />
 
                     <TextView
-                        android:id="@+id/tvPrice"
+                        android:id="@+id/tvPrice1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Rs. 300 for one"
+                        android:text="Rs. 250 for one"
                         android:textColor="@android:color/darker_gray" />
 
                     <TextView
-                        android:id="@+id/tvDeliveryInfo"
+                        android:id="@+id/tvDeliveryInfo1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Ready in 30-40 min"
+                        android:text="Ready in 10-15 min"
                         android:textColor="@android:color/darker_gray" />
 
                     <TextView
-                        android:id="@+id/tvDiscount"
+                        android:id="@+id/tvDiscount1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="20% OFF up to Rs. 60"
+                        android:text="30% OFF up to Rs. 50"
                         android:textColor="@android:color/holo_blue_dark" />
 
-                    <!-- Add to Cart Button -->
                     <Button
-                        android:id="@+id/btnAddToCart"
+                        android:id="@+id/btnAddToCart1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Add to Cart"
                         android:layout_marginTop="16dp"
                         android:backgroundTint="@color/reddishColor"
-                        android:textColor="@android:color/white" />
+                        android:textColor="#000000" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card 2: Pizza -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="#f9f9f9">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/pizza" />
+
+                    <TextView
+                        android:id="@+id/tvRestaurantName2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Pizza Hub"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDishName2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Cheese Pizza"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/tvPrice2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Rs. 500 for one"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/tvDeliveryInfo2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Ready in 20 min"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/tvDiscount2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="20% OFF"
+                        android:textColor="@android:color/holo_blue_dark" />
+
+                    <Button
+                        android:id="@+id/btnAddToCart2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Add to Cart"
+                        android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/reddishColor"
+                        android:textColor="#000000" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card 3: Dessert -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="#f9f9f9">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/burger" />
+
+                    <TextView
+                        android:id="@+id/tvRestaurantName3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Burger Joint"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDishName3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Cheese Burger"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/tvPrice3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Rs. 150 for one"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/tvDeliveryInfo3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Ready in 10 min"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/tvDiscount3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="15% OFF on orders above Rs. 300"
+                        android:textColor="@android:color/holo_blue_dark" />
+
+                    <Button
+                        android:id="@+id/btnAddToCart3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Add to Cart"
+                        android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/reddishColor"
+                        android:textColor="#000000" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="#f9f9f9">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/dessert" />
+
+                    <TextView
+                        android:id="@+id/tvRestaurantNameDessert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Sweet Treats"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDessertName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Chocolate Cake"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/tvDessertPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Rs. 120 per slice"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/tvDessertDeliveryInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Ready in 5-10 min"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/tvDessertDiscount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="10% OFF on orders above Rs. 200"
+                        android:textColor="@android:color/holo_blue_dark" />
+
+                    <Button
+                        android:id="@+id/btnAddToCart4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Add to Cart"
+                        android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/reddishColor"
+                        android:textColor="#000000" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

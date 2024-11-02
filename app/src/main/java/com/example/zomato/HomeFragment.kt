@@ -1,6 +1,7 @@
 package com.example.zomato
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +29,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         // Initialize views
@@ -42,26 +42,23 @@ class HomeFragment : Fragment() {
         typeText = view.findViewById(R.id.typeText)
         typeSpinner = view.findViewById(R.id.typeSpinner)
 
-        // Drawer menu click: Communicate with HomeActivity to open the drawer
+        // Drawer menu click to communicate with HomeActivity to open the drawer
         menuDrawer.setOnClickListener {
-            (activity as? HomeActivity)?.openDrawer()  // Access HomeActivity's method
+            (activity as? HomeActivity)?.openDrawer()
         }
 
-        // Set OnClickListeners for the text views to toggle spinner visibility
+        // Toggle spinner visibility on TextView click
         sortText.setOnClickListener {
-            sortSpinner.visibility = if (sortSpinner.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+            sortSpinner.toggleVisibility()
         }
-
         deliveryText.setOnClickListener {
-            deliverySpinner.visibility = if (deliverySpinner.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+            deliverySpinner.toggleVisibility()
         }
-
         ratingText.setOnClickListener {
-            ratingSpinner.visibility = if (ratingSpinner.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+            ratingSpinner.toggleVisibility()
         }
-
         typeText.setOnClickListener {
-            typeSpinner.visibility = if (typeSpinner.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+            typeSpinner.toggleVisibility()
         }
 
         // Set OnClickListeners for grid items
@@ -73,7 +70,51 @@ class HomeFragment : Fragment() {
             }
         }
 
+        // Example banner click setup
+        val bannerOne: ImageView = view.findViewById(R.id.topBrandsLabel)
+        bannerOne.setOnClickListener {
+            showBannerDetailsDialog()
+        }
+        val brandBurgerKing: ImageView = view.findViewById(R.id.brand_burger_king)
+        val brandKFC: ImageView = view.findViewById(R.id.brand_kfc)
+        val brandSubway: ImageView = view.findViewById(R.id.brand_subway)
+        val brandDominos: ImageView = view.findViewById(R.id.brand_dominos)
+
+        // Set click listeners to show dialog for each brand
+        brandBurgerKing.setOnClickListener {
+            showBrandDetailsDialog("Burger King", "Enjoy delicious burgers!", R.drawable.brand_burger_king)
+        }
+        brandKFC.setOnClickListener {
+            showBrandDetailsDialog("KFC", "Finger-lickin' good chicken!", R.drawable.brand_kfc)
+        }
+        brandSubway.setOnClickListener {
+            showBrandDetailsDialog("Subway", "Eat fresh with healthy subs!", R.drawable.brand_subway)
+        }
+        brandDominos.setOnClickListener {
+            showBrandDetailsDialog("Dominos", "Get your favorite pizza!", R.drawable.brand_dominos)
+        }
+
         return view
+    }
+    // Function to show a brand details dialog
+    private fun showBrandDetailsDialog(brandName: String, description: String, imageResId: Int) {
+        val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_brand_details, null)
+
+        // Initialize dialog views
+        val brandNameTextView: TextView = dialogView.findViewById(R.id.dialog_brand_name)
+        val brandDescriptionTextView: TextView = dialogView.findViewById(R.id.dialog_brand_description)
+        val brandImageView: ImageView = dialogView.findViewById(R.id.dialog_brand_image)
+
+        // Set dialog content
+        brandNameTextView.text = brandName
+        brandDescriptionTextView.text = description
+        brandImageView.setImageResource(imageResId)
+
+        // Show dialog
+        AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .setPositiveButton("Close") { dialog, _ -> dialog.dismiss() }
+            .show()
     }
 
     // Function to show item details dialog
@@ -125,12 +166,58 @@ class HomeFragment : Fragment() {
         dialogBuilder.setView(dialogView)
         val dialog = dialogBuilder.create()
 
-        // Add a listener to the button
         addToCartButton.setOnClickListener {
             Toast.makeText(requireContext(), "${itemName.text} added to cart", Toast.LENGTH_SHORT).show()
-            dialog.dismiss()  // Close the dialog
+            dialog.dismiss()
         }
 
-        dialog.show()  // Show the dialog
+        dialog.show()
+    }
+
+    // Function to show banner details dialog with a countdown timer
+    private fun showBannerDetailsDialog() {
+        val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_banner_details, null)
+
+        // Initialize dialog views
+        val bannerName: TextView = dialogView.findViewById(R.id.dialog_banner_name)
+        val bannerDescription: TextView = dialogView.findViewById(R.id.dialog_banner_description)
+        val bannerImage: ImageView = dialogView.findViewById(R.id.dialog_banner_image)
+        val bannerTimer: TextView = dialogView.findViewById(R.id.dialog_banner_timer)
+
+        // Set banner details
+        bannerName.text = "Limited Time Offer"
+        bannerDescription.text = "Get 50% off on select items!"
+        bannerImage.setImageResource(R.drawable.banner2)
+
+        // Countdown timer for 5 minutes (300,000 milliseconds)
+        val countdownTime = 300000L
+        val timer = object : CountDownTimer(countdownTime, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val minutes = millisUntilFinished / 60000
+                val seconds = (millisUntilFinished % 60000) / 1000
+                bannerTimer.text = "Expires in: $minutes:${if (seconds < 10) "0" else ""}$seconds"
+            }
+
+            override fun onFinish() {
+                bannerTimer.text = "Expired"
+            }
+        }
+        timer.start()
+
+        // Show the dialog
+        val dialogBuilder = AlertDialog.Builder(requireContext())
+        dialogBuilder.setView(dialogView)
+        val dialog = dialogBuilder.create()
+
+        dialog.setOnDismissListener {
+            timer.cancel()
+        }
+
+        dialog.show()
+    }
+
+    // Extension function to toggle visibility of spinners
+    private fun View.toggleVisibility() {
+        visibility = if (visibility == View.VISIBLE) View.GONE else View.VISIBLE
     }
 }

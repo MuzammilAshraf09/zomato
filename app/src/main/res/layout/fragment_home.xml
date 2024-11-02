@@ -451,6 +451,7 @@ android:gravity="center" />
                 app:cardCornerRadius="16dp"
                 app:cardBackgroundColor="#f9f9f9">
                 <ImageView
+                    android:id="@+id/topBrandsLabel"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:contentDescription="Mega Sale Banner"
@@ -462,7 +463,6 @@ android:gravity="center" />
 
             <!-- Top brands label -->
             <TextView
-                android:id="@+id/topBrandsLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -472,7 +472,6 @@ android:gravity="center" />
                 android:textColor="@android:color/black" />
 
 
-        <!-- Horizontal scroll for brands -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -485,6 +484,7 @@ android:gravity="center" />
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/brand_burger_king"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginRight="16dp"
@@ -492,6 +492,7 @@ android:gravity="center" />
                         android:src="@drawable/brand_burger_king" />
 
                     <ImageView
+                        android:id="@+id/brand_kfc"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginRight="16dp"
@@ -499,6 +500,7 @@ android:gravity="center" />
                         android:src="@drawable/brand_kfc" />
 
                     <ImageView
+                        android:id="@+id/brand_subway"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginRight="16dp"
@@ -506,6 +508,7 @@ android:gravity="center" />
                         android:src="@drawable/brand_subway" />
 
                     <ImageView
+                        android:id="@+id/brand_dominos"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginRight="16dp"

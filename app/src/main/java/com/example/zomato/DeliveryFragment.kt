@@ -21,14 +21,31 @@ class DeliveryFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_delivery, container, false)
 
         // Initialize the Add to Cart button
-        val btnAddToCart: Button = view.findViewById(R.id.btnAddToCart)
+        val buttonIds = listOf(
+            R.id.btnAddToCart1,
+            R.id.btnAddToCart2,
+            R.id.btnAddToCart3,
+            R.id.btnAddToCart4
+        )
 
-        // Set a click listener for the button
-        btnAddToCart.setOnClickListener {
-            Toast.makeText(context, "Added to Cart", Toast.LENGTH_SHORT).show()
+        // Set click listeners for each button in a loop
+        buttonIds.forEachIndexed { index, buttonId ->
+            view.findViewById<Button>(buttonId).setOnClickListener {
+                val message = "Item ${index + 1} added to cart!"
+                showAddToCartToast(message)
+            }
         }
 
         return view
+    }
+
+    // Helper function to display a custom Toast message with animation
+    private fun showAddToCartToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).apply {
+            view?.alpha = 0f
+            view?.animate()?.alpha(1f)?.setDuration(500)?.start()
+            show()
+        }
     }
 
 
