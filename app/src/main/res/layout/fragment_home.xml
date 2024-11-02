@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="16dp"
+    tools:context=".HomeFragment">
+
+    <!-- ScrollView to contain all content -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="0dp">
+
+            <!-- User location and icon -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/userLocationTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Location not set"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1" /> <!-- Takes remaining space -->
+
+                <ImageView
+                    android:id="@+id/menu_drawer"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:contentDescription="DrawerIcon"
+                    android:src="@drawable/menu_drawer"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+            <!-- Search bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Search Icon"
+                    android:src="@drawable/ic_search" />
+
+                <EditText
+                    android:id="@+id/searchBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="Search Items"
+                    android:paddingStart="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:weightSum="4"
+                android:padding="10dp">
+
+                <!-- Sort Spinner with Heading -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp">
+
+                    <TextView
+                        android:id="@+id/sortText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sort By"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:background="@drawable/border_background"
+                        android:padding="10dp"/>
+
+                    <Spinner
+                        android:id="@+id/sortSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/sort_options"
+                        android:background="@android:color/white"
+                        android:popupBackground="@android:color/white"
+                        android:spinnerMode="dropdown"
+                        android:padding="10dp"
+                        android:visibility="gone"
+                        app:popupTheme="@style/SpinnerTheme" />
+                </LinearLayout>
+
+                <!-- Delivery Spinner with Heading -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp">
+
+                    <TextView
+                        android:id="@+id/deliveryText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Delivery "
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:background="@drawable/border_background"
+                        android:padding="10dp"/>
+
+                    <Spinner
+                        android:id="@+id/deliverySpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/delivery_options"
+                        android:background="@android:color/white"
+                        android:popupBackground="@android:color/white"
+                        android:spinnerMode="dropdown"
+                        android:padding="10dp"
+                        android:visibility="gone"
+                        app:popupTheme="@style/SpinnerTheme" />
+                </LinearLayout>
+
+                <!-- Rating Spinner with Heading -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp">
+
+                    <TextView
+                        android:id="@+id/ratingText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rating"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:background="@drawable/border_background"
+                        android:padding="10dp"/>
+
+                    <Spinner
+                        android:id="@+id/ratingSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/rating_options"
+                        android:background="@android:color/white"
+                        android:popupBackground="@android:color/white"
+                        android:spinnerMode="dropdown"
+                        android:padding="10dp"
+                        android:visibility="gone"
+                        app:popupTheme="@style/SpinnerTheme" />
+                </LinearLayout>
+
+                <!-- Type Spinner with Heading -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp">
+
+                    <TextView
+                        android:id="@+id/typeText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Type"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:background="@drawable/border_background"
+                        android:padding="10dp"/>
+
+                    <Spinner
+                        android:id="@+id/typeSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/type_options"
+                        android:background="@android:color/white"
+                        android:popupBackground="@android:color/white"
+                        android:spinnerMode="dropdown"
+                        android:padding="10dp"
+                        android:visibility="gone"
+                        app:popupTheme="@style/SpinnerTheme" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Add this section before the Banner section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp">
+
+                <!-- Left Line -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Text in the middle -->
+                <TextView
+                    android:id="@+id/whatAreYouLookingFor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="What are you looking for?"
+                    android:textSize="15sp"
+                    android:textStyle="italic"
+                    android:textColor="@android:color/black" />
+
+                <!-- Right Line -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginStart="8dp" />
+
+            </LinearLayout>
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <GridLayout
+                        android:id="@+id/gridLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:rowCount="3"
+                    android:alignmentMode="alignMargins"
+                    android:padding="8dp"
+                    android:layout_gravity="center">
+
+                    <!-- Trending card -->
+                    <LinearLayout
+                        android:id="@+id/card_trending"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/rounded_background"
+                    android:padding="8dp"
+                    android:layout_margin="8dp"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/trending_image"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trending"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:gravity="center" />
+                </LinearLayout>
+
+            <!-- Pure Veg card -->
+            <LinearLayout
+                android:id="@+id/card_pure_veg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_background"
+            android:padding="8dp"
+            android:layout_margin="8dp"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/pure_veg_image"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pure Veg"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Family Dining card -->
+        <LinearLayout
+            android:id="@+id/card_family_dining"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_background"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/family_dining_image"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Family Dining"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- Premium Dining card -->
+    <LinearLayout
+        android:id="@+id/card_premium_dining"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_background"
+    android:padding="8dp"
+    android:layout_margin="8dp"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/premium_dining_image"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Premium Dining"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:gravity="center" />
+</LinearLayout>
+
+    <!-- Buffet card -->
+<LinearLayout
+android:id="@+id/card_buffet"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_background"
+    android:padding="8dp"
+    android:layout_margin="8dp"
+    android:gravity="center_horizontal">
+
+<ImageView
+android:layout_width="match_parent"
+android:layout_height="100dp"
+android:src="@drawable/buffet_image"
+android:scaleType="centerCrop" />
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Buffet"
+android:textSize="16sp"
+android:textColor="@android:color/black"
+android:gravity="center" />
+    </LinearLayout>
+
+    <!-- Drink & Dine card -->
+<LinearLayout
+android:id="@+id/card_drink_dine"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_background"
+    android:padding="8dp"
+    android:layout_margin="8dp"
+    android:gravity="center_horizontal">
+
+<ImageView
+android:layout_width="match_parent"
+android:layout_height="100dp"
+android:src="@drawable/drink_dine_image"
+android:scaleType="centerCrop" />
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Drink and Dine"
+android:textSize="16sp"
+android:textColor="@android:color/black"
+android:gravity="center" />
+    </LinearLayout>
+
+    </GridLayout>
+
+    </LinearLayout>
+            </ScrollView>
+            <!-- Banner section -->
+            <!-- Banner section as cards -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:elevation="4dp"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="#f9f9f9">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:contentDescription="Mega Sale Banner"
+                    android:src="@drawable/banner2"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+
+
+
+            <!-- Top brands label -->
+            <TextView
+                android:id="@+id/topBrandsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Top Brands For You"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+
+        <!-- Horizontal scroll for brands -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="16dp"
+                        android:contentDescription="Burger King"
+                        android:src="@drawable/brand_burger_king" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="16dp"
+                        android:contentDescription="KFC"
+                        android:src="@drawable/brand_kfc" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="16dp"
+                        android:contentDescription="Subway"
+                        android:src="@drawable/brand_subway" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginRight="16dp"
+                        android:contentDescription="Dominos"
+                        android:src="@drawable/brand_dominos" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

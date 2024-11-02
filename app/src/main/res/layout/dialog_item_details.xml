@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/rounded_background"> <!-- Set the rounded background -->
+
+    <ImageView
+        android:id="@+id/dialog_item_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Item Image" />
+
+    <TextView
+        android:id="@+id/dialog_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:textColor="#000000" /> <!-- Black text color for name -->
+
+    <TextView
+        android:id="@+id/dialog_item_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp"
+        android:textColor="#000000" /> <!-- Black text color for price -->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dialog_add_to_cart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to Cart"
+        android:layout_marginTop="16dp"
+        app:backgroundTint="#FF5733"
+    android:textColor="#000000"
+    app:cornerRadius="8dp" />
+    <!-- Black text color -->
+</LinearLayout>

@@ -1,11 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_orders"
-        android:title="Your Orders"
-        android:icon="@drawable/ic_orders" /> <!-- Replace with your actual orders icon -->
+        android:id="@+id/nav_payment"
+        android:icon="@drawable/ic_payment"
+        android:title="Payment" />
 
     <item
-        android:id="@+id/nav_settings"
+        android:id="@+id/nav_setting"
         android:title="Settings"
         android:icon="@drawable/ic_settings" /> <!-- Replace with your actual settings icon -->
 </menu>

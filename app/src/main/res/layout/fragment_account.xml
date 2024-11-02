@@ -2,24 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/reddishColor"
-    tools:context=".AccountActivity">
-
-    <!-- Back Arrow -->
-    <ImageView
-        android:id="@+id/backArrow"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_back_arrow"
-        android:contentDescription="Back Arrow"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp" />
+    android:background="@color/reddishColor">
 
     <!-- Profile Image -->
     <ImageView
@@ -33,9 +18,8 @@
         android:background="@drawable/circle_shape"
         android:clipToOutline="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/backArrow" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Display Name -->
     <TextView
@@ -49,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@id/profileImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <!-- Display Email -->
     <TextView
@@ -62,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@id/userName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp" />
 
     <!-- Display Phone -->
     <TextView
@@ -75,6 +59,6 @@
         app:layout_constraintTop_toBottomOf="@id/userEmail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

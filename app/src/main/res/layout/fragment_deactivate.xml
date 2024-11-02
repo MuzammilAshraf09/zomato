@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D32F2F"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/warningTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Warning!"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:paddingBottom="16dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/warningMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Deleting your account is permanent and cannot be undone. All data will be lost."
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:padding="8dp"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/confirmMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Are you sure you want to delete your account? This action cannot be recovered."
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/deleteAccountButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Account"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#B71C1C"
+        android:minWidth="200dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"/>
+</LinearLayout>

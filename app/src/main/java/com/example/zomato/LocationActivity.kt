@@ -66,7 +66,8 @@ class LocationActivity : AppCompatActivity() {
 
                 // Pass the location to HomeActivity
                 val intent = Intent(this, HomeActivity::class.java).apply {
-                    putExtra("USER_LOCATION", location)
+                    // Use the correct key that HomeActivity expects
+                    putExtra("LOCATION", location)
                 }
                 startActivity(intent)
                 finish() // Optional: Call finish() if you don't want to return to LocationActivity
