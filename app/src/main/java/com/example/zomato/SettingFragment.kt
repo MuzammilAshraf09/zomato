@@ -54,7 +54,10 @@ class SettingFragment : Fragment() {
 
         // Set OnClickListener for "Help and Support"
         sectionHelpSupport.setOnClickListener {
-            // Handle click for help and support
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, HelpSupportFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
 }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <!-- Title TextView -->
+<TextView
+android:id="@+id/titleHelpSupport"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Help and Support"
+android:textSize="24sp"
+android:textStyle="bold"
+android:textColor="#333333"
+    android:layout_centerHorizontal="true"
+    android:paddingBottom="16dp"/>
+
+    <!-- Help Content TextView -->
+<TextView
+android:id="@+id/helpContent"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Here you’ll find answers to common questions, contact options, and more."
+android:textSize="16sp"
+android:textColor="#666666"
+    android:padding="12dp"
+    android:layout_below="@id/titleHelpSupport"
+    android:background="@drawable/rounded_background"
+    android:layout_marginTop="12dp"/>
+
+<TextView
+android:id="@+id/faqSection"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="FAQs"
+android:textSize="16sp"
+android:textColor="#333333"
+android:padding="12dp"
+android:layout_below="@id/helpContent"
+android:layout_marginTop="8dp"
+android:background="@drawable/rounded_background"
+android:clickable="true"
+android:focusable="true"/>
+
+<TextView
+android:id="@+id/contactUsSection"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Contact Us"
+android:textSize="16sp"
+android:textColor="#333333"
+android:padding="12dp"
+android:layout_below="@id/faqSection"
+android:layout_marginTop="8dp"
+android:background="@drawable/rounded_background"
+android:clickable="true"
+android:focusable="true"/>
+    </RelativeLayout>
