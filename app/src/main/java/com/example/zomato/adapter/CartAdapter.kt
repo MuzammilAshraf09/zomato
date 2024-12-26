@@ -50,4 +50,11 @@ class CartAdapter(
             notifyItemRangeChanged(position, cartItems.size)
         }
     }
+
+    // Function to update cart items dynamically
+    fun updateCartItems(newItems: List<CartItem>) {
+        cartItems.clear()
+        cartItems.addAll(newItems)
+        notifyDataSetChanged()
+    }
 }

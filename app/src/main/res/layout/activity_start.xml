@@ -6,26 +6,21 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFEEEE"
+    android:background="#FFFFFF"
     tools:context=".StartActivity">
 
     <!-- Logo Image -->
-
-    <!-- Transition Text -->
-
     <ImageView
         android:id="@+id/logoImage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:src="@drawable/background"
         android:scaleType="centerCrop"
-    app:layout_constraintBottom_toTopOf="@+id/transitionText"
-    app:layout_constraintHeight_percent="0.4"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0"
-    tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintBottom_toTopOf="@+id/transitionText"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintTop_toTopOf="parent" />
 
-
+    <!-- Transition Text -->
     <TextView
         android:id="@+id/transitionText"
         android:layout_width="0dp"
@@ -36,8 +31,6 @@
         android:textSize="40sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:textAlignment="center"
-        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logoImage" />
@@ -47,7 +40,7 @@
         android:id="@+id/titleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="Pakistan’s #1 Food Delivery and Dining App"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -55,26 +48,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/transitionText" />
 
-    <!-- Login / Sign Up with Lines -->
+    <!-- Login / Sign Up Section -->
     <LinearLayout
         android:id="@+id/loginSignupContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleText">
 
-        <!-- Left line -->
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1"
             android:background="#CCCCCC" />
 
-        <!-- Centered text -->
         <TextView
             android:id="@+id/loginSignupHeading"
             android:layout_width="wrap_content"
@@ -85,7 +76,6 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <!-- Right line -->
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
@@ -93,19 +83,67 @@
             android:background="#CCCCCC" />
     </LinearLayout>
 
+    <!-- Phone Number Input -->
     <EditText
-        android:id="@+id/phoneInput"
+        android:id="@+id/phoneNumberEditText"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:hint="Enter Phone Number"
         android:inputType="phone"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:padding="12dp"
+        android:textColor="#141414"
+        android:background="@drawable/border_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginSignupContainer" />
+        app:layout_constraintTop_toBottomOf="@id/loginSignupContainer"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <!-- Send OTP Button -->
+    <Button
+        android:id="@+id/sendOtpButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Send OTP"
+        android:backgroundTint="@color/reddishColor"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phoneNumberEditText"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <!-- OTP Input -->
+    <EditText
+        android:id="@+id/otpEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Enter OTP"
+        android:inputType="number"
+        android:textColor="#141414"
+        android:padding="12dp"
+        android:background="@drawable/border_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sendOtpButton"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <!-- Verify OTP Button -->
+    <Button
+        android:id="@+id/verifyOtpButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Verify OTP"
+        android:backgroundTint="@color/reddishColor"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/otpEditText"
+        app:layout_constraintWidth_percent="0.8" />
 
     <!-- Google Button Image -->
     <ImageView
@@ -115,22 +153,22 @@
         android:layout_marginTop="24dp"
         android:src="@drawable/google_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phoneInput" />
+        app:layout_constraintTop_toBottomOf="@id/verifyOtpButton" />
 
     <!-- Continue Button -->
-    <Button
-        android:id="@+id/continueButton"
-        android:layout_width="0dp"
+
+
+    <!-- Error Message -->
+    <TextView
+        android:id="@+id/errorMessage"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/reddishColor"
-        android:text="Continue"
-        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"
+        android:text="Error Message"
+        android:textColor="@android:color/holo_red_light"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/googleButton" />
-
+        app:layout_constraintTop_toBottomOf="@id/phoneNumberEditText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

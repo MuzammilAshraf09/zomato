@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "45464848705",
+    "project_id": "zomato-f1c7f",
+    "storage_bucket": "zomato-f1c7f.firebasestorage.app"
+  },
+
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45464848705:android:031799cfcdfcc1edc539c0",
+        "android_client_info": {
+          "package_name": "com.example.zomato"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45464848705-aog587o2slvm4u6ts9gdrnvlv5meutir.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zomato",
+            "certificate_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+          }
+        },
+        {
+          "client_id": "45464848705-ioin37lk0of975485j7os9p7qddite8f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC--y3x1tIwMCk_lb-AWwV5elR6zIVJOI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45464848705-ioin37lk0of975485j7os9p7qddite8f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,12 +8,31 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
 
 class LocationActivity : AppCompatActivity() {
+
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firebaseDatabase: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location)
+
+        // Initialize Firebase Authentication and Database
+        firebaseAuth = FirebaseAuth.getInstance()
+        firebaseDatabase = FirebaseDatabase.getInstance()
+
+        // Get the current authenticated user
+        val currentUser: FirebaseUser? = firebaseAuth.currentUser
+
+        // Get user details
+        val userName = currentUser?.displayName ?: "Guest"
+        val userEmail = currentUser?.email ?: "N/A"
+        val userPhone = currentUser?.phoneNumber ?: "N/A"
+        val userPhotoUrl = currentUser?.photoUrl?.toString() ?: ""
 
         // Reference the AutoCompleteTextView for location input
         val locationInput: AutoCompleteTextView = findViewById(R.id.locationInput)
@@ -23,7 +42,7 @@ class LocationActivity : AppCompatActivity() {
 
         // List of locations for the dropdown
         val locations = listOf(
-            "Satellitown Gujranwala",
+            "Satellite Town Gujranwala",
             "Model Town Gujranwala",
             "Civil Lines Gujranwala",
             "Peoples Colony Gujranwala",
@@ -54,7 +73,24 @@ class LocationActivity : AppCompatActivity() {
         // Reference the "Set Location" button
         val setLocationButton: Button = findViewById(R.id.setLocationButton)
 
-        // Set an OnClickListener on the button
+        // Reference the locations node in Firebase Database
+        val locationsRef = firebaseDatabase.getReference("locations")
+
+        // Check if locations already exist in the database
+        locationsRef.get().addOnSuccessListener { snapshot ->
+            if (!snapshot.exists()) {
+                // If no locations exist, store the list in Firebase Database
+                locationsRef.setValue(locations)
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Locations added to Firebase", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener { exception ->
+                        Toast.makeText(this, "Failed to add locations: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    }
+            }
+        }
+
+        // Set an OnClickListener on the "Set Location" button
         setLocationButton.setOnClickListener {
             // Get the entered location from the AutoCompleteTextView
             val location = locationInput.text.toString()
@@ -64,10 +100,13 @@ class LocationActivity : AppCompatActivity() {
                 // Show a toast message indicating the location is set
                 Toast.makeText(this, "Location Set: $location", Toast.LENGTH_SHORT).show()
 
-                // Pass the location to HomeActivity
+                // Pass the location and user data to HomeActivity
                 val intent = Intent(this, HomeActivity::class.java).apply {
-                    // Use the correct key that HomeActivity expects
                     putExtra("LOCATION", location)
+                    putExtra("USER_NAME", userName)
+                    putExtra("USER_EMAIL", userEmail)
+                    putExtra("USER_PHONE", userPhone)
+                    putExtra("USER_PHOTO_URL", userPhotoUrl)
                 }
                 startActivity(intent)
                 finish() // Optional: Call finish() if you don't want to return to LocationActivity

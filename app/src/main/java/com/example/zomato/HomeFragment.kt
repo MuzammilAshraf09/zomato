@@ -2,6 +2,8 @@ package com.example.zomato
 
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +14,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.zomato.adapter.CartAdapter
+import com.example.zomato.repository.CartRepository
+import com.example.zomato.model.CartItem
+import com.example.zomato.model.DeliveryItem
 
 class HomeFragment : Fragment() {
     // Declare UI components
@@ -24,6 +31,8 @@ class HomeFragment : Fragment() {
     private lateinit var ratingSpinner: Spinner
     private lateinit var typeText: TextView
     private lateinit var typeSpinner: Spinner
+    private lateinit var locationTextView: TextView  // Add a TextView for displaying the location
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +50,10 @@ class HomeFragment : Fragment() {
         ratingSpinner = view.findViewById(R.id.ratingSpinner)
         typeText = view.findViewById(R.id.typeText)
         typeSpinner = view.findViewById(R.id.typeSpinner)
+        locationTextView = view.findViewById(R.id.userLocationTextView)  // Make sure this ID matches your layout
+
+        val location = arguments?.getString("LOCATION") ?: "Location not set"
+        locationTextView.text = location  // Set location to the TextView
 
         // Drawer menu click to communicate with HomeActivity to open the drawer
         menuDrawer.setOnClickListener {
@@ -110,11 +123,25 @@ class HomeFragment : Fragment() {
         brandDescriptionTextView.text = description
         brandImageView.setImageResource(imageResId)
 
-        // Show dialog
-        AlertDialog.Builder(requireContext())
-            .setView(dialogView)
-            .setPositiveButton("Close") { dialog, _ -> dialog.dismiss() }
-            .show()
+        // Create and show the dialog
+        val dialog = AlertDialog.Builder(requireContext())
+            .setTitle("Brand Selected")
+            .setMessage("Do wanna order this")
+            .setPositiveButton("Yes") { _, _ ->
+                // Start the DeliveryFragment when button is clicked
+                val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.fragment_container, DeliveryFragment()) // replace with your container ID
+                transaction.addToBackStack(null)  // Optional: Add this fragment to the back stack
+                transaction.commit()
+            }
+            .setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+
+        dialog.show()
+
+
     }
 
     // Function to show item details dialog
@@ -167,12 +194,22 @@ class HomeFragment : Fragment() {
         val dialog = dialogBuilder.create()
 
         addToCartButton.setOnClickListener {
+            // Create a CartItem object based on the selected item
+            val cartItem = CartItem(
+                name = itemName.text.toString(),
+                price = itemPrice.text.toString().substring(1).toDouble(), // Remove the dollar sign and convert to double
+            )
+
+            // Add the CartItem to the CartRepository
+            CartRepository.addItem(cartItem)
+
             Toast.makeText(requireContext(), "${itemName.text} added to cart", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }
 
         dialog.show()
     }
+
 
     // Function to show banner details dialog with a countdown timer
     private fun showBannerDetailsDialog() {
@@ -214,7 +251,26 @@ class HomeFragment : Fragment() {
         }
 
         dialog.show()
+
+        // Use Handler to delay the navigation to the DeliveryFragment by 10 seconds
+        Handler(Looper.getMainLooper()).postDelayed({
+            // Close the dialog before navigating
+            if (dialog.isShowing) {
+                dialog.dismiss()
+            }
+
+            // Navigate to DeliveryFragment after closing the dialog
+            navigateToDeliveryFragment()
+        }, 10000) // 10,000 milliseconds = 10 seconds
     }
+
+    private fun navigateToDeliveryFragment() {
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, DeliveryFragment()) // replace with your container ID
+        transaction.addToBackStack(null)  // Optional: Add this fragment to the back stack
+        transaction.commit()
+    }
+
 
     // Extension function to toggle visibility of spinners
     private fun View.toggleVisibility() {
