@@ -159,7 +159,7 @@ class HomeFragment : Fragment() {
             R.id.card_trending -> {
                 itemName.text = "Trending"
                 itemPrice.text = "$10"  // Hardcoded price
-                itemImage.setImageResource(R.drawable.trending_image)  // Replace with actual image resource
+                itemImage.setImageResource(R.drawable.trending_image) 
             }
             R.id.card_pure_veg -> {
                 itemName.text = "Pure Veg"

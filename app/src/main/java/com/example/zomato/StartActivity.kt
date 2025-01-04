@@ -80,13 +80,15 @@ class StartActivity : AppCompatActivity() {
 
         sendOtpButton.setOnClickListener {
             val phoneNumber = phoneNumberEditText.text.toString()
-            if (phoneNumber.isNotEmpty()) {
+
+            // Validate phone number inline
+            val regex = Regex("^\\+92[0-9]{10}\$")
+            if (phoneNumber.matches(regex)) {
                 sendOtp(phoneNumber)
             } else {
-                Toast.makeText(this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please enter a valid phone number starting with +92.", Toast.LENGTH_SHORT).show()
             }
         }
-
         verifyOtpButton.setOnClickListener {
             val otpCode = otpEditText.text.toString()
             if (!otpCode.isNullOrEmpty() && verificationId != null) {
@@ -96,6 +98,8 @@ class StartActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter the OTP.", Toast.LENGTH_SHORT).show()
             }
         }
+
+
 
         // Text animation
         val transitionText: TextView = findViewById(R.id.transitionText)
