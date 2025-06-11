@@ -1,4 +1,6 @@
 # Zomato: Food Delivery Mobile Application
+# All Rights Reserved.
+## You may not copy, reproduce, modify, or redistribute this code without explicit permission.
 
 ## Project Overview
 Zomato is a food delivery mobile application inspired by the popular Zomato platform. This app allows users to browse, search, and order food from various restaurants. The app offers various features such as filtering, sorting, and promotional banners to enhance user experience. The backend is powered by **Firebase** for user authentication, real-time data syncing, and order management.
